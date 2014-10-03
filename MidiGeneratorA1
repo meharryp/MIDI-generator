@@ -3,25 +3,36 @@
 using namespace std;
 
 int main () {
-  MidiFile outputfile;
-	outputfile.absoluteTime ();
+	MidiFile outputfile; //Makes a file for the program to output to
+	outputfile.absoluteTime (); //Makes the program use absolute time as opposed to delta time
 
-	outputfile.addTrack(2);
+	outputfile.addTrack(2); //2 track song
 	Array<uchar> midievent;
 	midievent.setSize(3);
-	const int tpq = 48;
-	outputfile.setTicksPerQuarterNote (tpq);
-	//60=middle C
+	const int tpq = 48; //Ticks per quarter note, 48 tpq ~ 120 bpm, easy to work with, const as I don't want to change the bpm mid-song
+	outputfile.setTicksPerQuarterNote (tpq); //Sets ticks per quarter note (quaver)
+
 	int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5
-	int riffnote [];
-	int u;//moar loop pls
-	int v;//loop variable
-	int w;//other loop variable
-	int x;//note timing
+	int riffnote []; //Memory for riff
+	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
+	int *notepointer = note [tempvar];//Optimisation
+	delete tempvar;
+	
+	int *exceptionprevent; //Used to prevent pointing to values that don't exist
+	*exceptionprevent [0] = note [0];
+	*exceptionprevent [1] = note [1];
+	*exceptionprevent [2] = note [2];
+	*exceptionprevent [3] = note [7]; //Lower octave
+	*exceptionprevent [4] = note [15]; //Upper octave
+	
+	int u; //10 Loop
+	int v; //20 Variable
+	int w; //30 GOTO 10
+	int x; //note timing
 	int y = rand () % 7 + 5; //riff length
 	int z = rand () % 4 + 1; //number of times riff repeats
-	int actiontime = 0;
+	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64;
 
 	for (u = 0; u = y; u++) {
-		
+		riffnote [u] = *notepointer;
