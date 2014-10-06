@@ -12,7 +12,7 @@ int main () {
 	const int tpq = 48; //Ticks per quarter note, 48 tpq ~ 120 bpm, easy to work with, const as I don't want to change the bpm mid-song
 	outputfile.setTicksPerQuarterNote (tpq); //Sets ticks per quarter note (quaver)
 
-	int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5
+	const int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5, no need to change due to this array being a set of notes
 	int riffnote []; //Memory for riff
 	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
 	int *notepointer = note [tempvar];//Optimisation
@@ -24,6 +24,9 @@ int main () {
 	*exceptionprevent [2] = note [2];
 	*exceptionprevent [3] = note [7]; //Lower octave
 	*exceptionprevent [4] = note [15]; //Upper octave
+	*exceptionprevent [5] = note [21];
+	*exceptionprevent [6] = note [22];
+	*exceptionprevent [7] = note [23];
 	
 	int u; //10 Loop
 	int v; //20 Variable
@@ -33,6 +36,31 @@ int main () {
 	int z = rand () % 4 + 1; //number of times riff repeats
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64;
+	riffnote [0] = *notepointer
 
-	for (u = 0; u = y; u++) {
-		riffnote [u] = *notepointer;
+	for (u = 1; u = y; u++) { //Not starting a loop at 0 is bad practice, but here it makes sense
+		new int foo = rand () % 99 + 1; //Used to decide note change
+	
+		if (foo < 15 && &notepointer > &exceptionprevent [2])
+			&notepointer -= 3;
+		else if (foo > 15 && foo =< 30 && &notepointer > &exceptionprevent [1])
+			&notepointer -= 2;
+		else if (foo > 30 && foo =< 45 && &notepointer > &exceptionprevent [0])
+			&notepointer--;
+		else if (foo > 45 && foo =< 55)
+			break;
+		else if (foo > 55 && foo =< 70 && &notepointer < &exceptionprevent [23])
+			&notepointer++;
+		else if (foo > 70 && foo =< 85 && &notepointer < &exceptionprevent [22])
+			&notepointer += 2;
+		else if (foo > 85 && &notepointer < &exceptionprevent [21])
+			&notepointer += 3;
+		
+		riffnote [u] = *notepointer; //Sets one of the notes
+		
+		delete foo;
+	}
+	
+	
+		
+		
