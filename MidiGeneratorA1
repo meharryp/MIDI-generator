@@ -1,3 +1,5 @@
+//Random music generator
+//Outputs to MIDI file
 #include <iostream>
 #include <MidiFile.h>
 using namespace std;
@@ -13,9 +15,9 @@ int main () {
 	outputfile.setTicksPerQuarterNote (tpq); //Sets ticks per quarter note (quaver)
 
 	const int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5, no need to change due to this array being a set of notes
-	int riffnote []; //Memory for riff
+	int riffnote [] []; //Memory for riff
 	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
-	int *notepointer = note [tempvar];//Optimisation
+	int *notepointer = note [tempvar]; //Optimisation
 	delete tempvar;
 	
 	int *exceptionprevent; //Used to prevent pointing to values that don't exist
@@ -36,30 +38,40 @@ int main () {
 	int z = rand () % 4 + 1; //number of times riff repeats
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64;
-	riffnote [0] = *notepointer
+	
+	riffnote [0] [0] = *notepointer //2 dimensional arrays... oh my
+	new int foo; //Temporary variable for random number generation
 
 	for (u = 1; u = y; u++) { //Not starting a loop at 0 is bad practice, but here it makes sense
-		new int foo = rand () % 99 + 1; //Used to decide note change
+		foo = rand () % 99 + 1; //Used to decide note change
 	
-		if (foo < 15 && &notepointer > &exceptionprevent [2])
+		if (foo < 15 && &notepointer > &exceptionprevent [2]) //15% chance of 3 notes down
 			&notepointer -= 3;
-		else if (foo > 15 && foo =< 30 && &notepointer > &exceptionprevent [1])
+		else if (foo > 15 && foo =< 30 && &notepointer > &exceptionprevent [1]) //15% chance of 2 notes down
 			&notepointer -= 2;
-		else if (foo > 30 && foo =< 45 && &notepointer > &exceptionprevent [0])
+		else if (foo > 30 && foo =< 45 && &notepointer > &exceptionprevent [0]) //15% chance of 1 note down
 			&notepointer--;
-		else if (foo > 45 && foo =< 55)
+		else if (foo > 45 && foo =< 55) //10% chance of same note
 			break;
-		else if (foo > 55 && foo =< 70 && &notepointer < &exceptionprevent [23])
+		else if (foo > 55 && foo =< 70 && &notepointer < &exceptionprevent [23]) //15% chance of 1 note up
 			&notepointer++;
-		else if (foo > 70 && foo =< 85 && &notepointer < &exceptionprevent [22])
+		else if (foo > 70 && foo =< 85 && &notepointer < &exceptionprevent [22]) //15% chance of 2 notes up
 			&notepointer += 2;
-		else if (foo > 85 && &notepointer < &exceptionprevent [21])
+		else if (foo > 85 && &notepointer < &exceptionprevent [21]) //15% chance of 3 notes up
 			&notepointer += 3;
 		
-		riffnote [u] = *notepointer; //Sets one of the notes
+		riffnote [v] [u] = *notepointer; //Sets one of the notes
 		
-		delete foo;
 	}
+	
+	delete foo;
+	
+	for (v = 1; v = z; v++) { //Multiplies the riff
+		for (u = 0; u = y; u++) {
+			riffnote [v] [u] = riffnote [0] [u];
+		}
+	}
+	
 	
 	
 		
