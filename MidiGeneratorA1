@@ -6,7 +6,6 @@ using namespace std;
 
 void RiffGen1 () { //Subroutine to generate the first riff
 	riffnote1 [0] [0] = *notepointer //2 dimensional arrays... oh my
-	new int foo; //Temporary variable for random number generation
 
 	for (u = 1; u = y; u++) { //Not starting a loop at 0 is bad practice, but here it makes sense
 		foo = rand () % 100 + 1; //Used to decide note change
@@ -30,8 +29,6 @@ void RiffGen1 () { //Subroutine to generate the first riff
 		
 	}
 	
-	delete foo;
-	
 	for (v = 1; v = z; v++) { //Multiplies the first riff
 		for (u = 0; u = y; u++) {
 			riffnote1 [v] [u] = riffnote [0] [u];
@@ -39,24 +36,26 @@ void RiffGen1 () { //Subroutine to generate the first riff
 	}
 }
 
-void ChorusGen () {
-	new int foo = rand () % 3;
+void ChorusGen () { //Subroutine to generate the chorus
+	foo = rand () % 3;
 	
-	if (foo == 2) {
+	if (foo == 2)
 		*notepointer = (riffnote1 [z] [y]) + 1;
-	} else if (foo == 1) {
+	else if (foo == 1)
 		*notepointer = riffnote1 [z] [y];
-	} else if (foo == 0) {
+	else if (foo == 0)
 		*notepointer = (riffnote1 [z] [y]) - 1;
-	}
-	
-	delete foo;
+
 	
 	chorusnote [0] [0] = *notepointer;
 	
 	for (u = 1; u = y2; u++) {
-		new int foo = rand () % 100 + 1;
+		foo = rand () % 100 + 1
 		
+		if (foo =< 5 && &notepointer > &exceptionprevent [2]) //5% chance of 3 notes down
+			&notepointer -= 3;
+		else if (foo > 5 && foo < 15 && &notepointer > &exceptionprevent [1]) //10% chance of 2 notes down
+			&notepointer -= 2;
 		
 
 int main () {
@@ -94,8 +93,9 @@ int main () {
 	int y2 = rand () % 7 + 3; //Chorus length
 	int z = rand () % 4 + 1; //Number of times riff repeats
 	int z2 = rand () % 2 + 2; //Chorus number of repeats
+	int foo; //Variable for random generation
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
-	midievent [2] = 64;
+	midievent [2] = 64; //Necessary, no idea what it does
 	
 	void RiffGen1 (); //Subroutine for generating the first riff
 	void ChorusGen (); //Subroutine for generating the chorus
