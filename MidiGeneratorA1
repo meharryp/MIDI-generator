@@ -1,5 +1,6 @@
 //Random music generator
 //Outputs to MIDI file
+//Uses code libraries from midifile.sapp.org
 #include <iostream>
 #include <MidiFile.h>
 using namespace std;
