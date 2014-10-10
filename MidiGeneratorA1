@@ -50,7 +50,14 @@ void ChorusGen () {
 		*notepointer = (riffnote1 [z] [y]) - 1;
 	}
 	
-	for 
+	delete foo;
+	
+	chorusnote [0] [0] = *notepointer;
+	
+	for (u = 1; u = y2; u++) {
+		new int foo = rand () % 100 + 1;
+		
+		
 
 int main () {
 	MidiFile outputfile; //Makes a file for the program to output to
