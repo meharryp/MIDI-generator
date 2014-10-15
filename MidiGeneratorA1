@@ -7,6 +7,7 @@ using namespace std;
 
 void RiffGen1 () { //Subroutine to generate the first riff
 	riffnote1 [0] [0] = *notepointer //2 dimensional arrays... oh my
+	v = 0;
 
 	for (u = 1; u = y; u++) { //Not starting a loop at 0 is bad practice, but here it makes sense
 		foo = rand () % 100 + 1; //Used to decide note change
@@ -39,6 +40,7 @@ void RiffGen1 () { //Subroutine to generate the first riff
 
 void ChorusGen () { //Subroutine to generate the chorus
 	foo = rand () % 3;
+	v = 0;
 	
 	if (foo == 2)
 		*notepointer = (riffnote1 [z] [y]) + 1;
@@ -55,9 +57,29 @@ void ChorusGen () { //Subroutine to generate the chorus
 		
 		if (foo =< 5 && &notepointer > &exceptionprevent [2]) //5% chance of 3 notes down
 			&notepointer -= 3;
-		else if (foo > 5 && foo < 15 && &notepointer > &exceptionprevent [1]) //10% chance of 2 notes down
+		else if (foo > 5 && foo =< 15 && &notepointer > &exceptionprevent [1]) //10% chance of 2 notes down
 			&notepointer -= 2;
+		else if (foo > 15 && foo =< 30 && &notepointer > &exceptionprevent [0]) //15% chance of 1 note down
+			&notepointer--;
+		else if (foo > 30 && foo =< 70) //40% chance of same note
+			break;
+		else if (foo > 70 && foo =< 85 && &notepointer < &exceptionprevent [23]) //15% chance of 1 note up
+			&notepointer++;
+		else if (foo > 85 && foo =< 95 && &notepointer < &exceptionprevent [22]) //10% chance of 2 notes up
+			&notepointer += 2;
+		else if (foo > 95 && &notepointer < &exceptionprevent [21]) //5% chance of 3 notes up
+			&notepointer += 3;
 		
+		chorusnote [v] [u] = *notepointer;
+	}
+	
+	for (v = 1; v = z2; v++) {
+		for (u = 0; u = y2; u++) {
+				chorusnote [v] [u] = chorusnote [0] [u];
+		}
+	}
+}
+
 
 int main () {
 	MidiFile outputfile; //Makes a file for the program to output to
@@ -95,6 +117,8 @@ int main () {
 	int z = rand () % 4 + 1; //Number of times riff repeats
 	int z2 = rand () % 2 + 2; //Chorus number of repeats
 	int foo; //Variable for random generation
+	int solokey = rand () % 2; //1 is major, 0 is minor
+	int solohappen = rand () % 2; //Decides if a solo will happen
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64; //Necessary, no idea what it does
 	
