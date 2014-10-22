@@ -2,6 +2,7 @@
 //Outputs to MIDI file
 //Uses code libraries from midifile.sapp.org
 #include <iostream>
+#include <cmath>
 #include <MidiFile.h>
 using namespace std;
 
@@ -52,7 +53,7 @@ void ChorusGen () { //Subroutine to generate the chorus
 	
 	chorusnote [0] [0] = *notepointer;
 	
-	for (u = 1; u = y2; u++) {
+	for (u = 1; u = y2; u++) { //Generates chorus riff
 		foo = rand () % 100 + 1
 		
 		if (foo =< 5 && &notepointer > &exceptionprevent [2]) //5% chance of 3 notes down
@@ -73,19 +74,75 @@ void ChorusGen () { //Subroutine to generate the chorus
 		chorusnote [v] [u] = *notepointer;
 	}
 	
-	for (v = 1; v = z2; v++) {
-		for (u = 0; u = y2; u++) {
+	for (v = 1; v = z2; v++) { //Repeats chorus riff, and has a random chance of modifying it slightly
+		foo = rand () % 3 + 1;
+	
+		if (foo == 1) {
+			bar = rand () % 3 + 1;
+			
+			for (u = 0; u = y2; u++) {
+				if (chorusnote [0] [u] >= 51) { 
+					chorusnote [v] [u] = chorusnote [0] [u] - bar;
+				} else if (chorusnote [0] [u] >= 50)  {
+					chorusnote [v] [u] = chorusnote [0] [u] - (bar - 1);
+				} else if (chorusnote [0] [u] >= 49) {
+					chorusnote [v] [u] = chorusnote [0] [u] - (bar - 2);
+				}
+			}
+		} else if (foo == 2) {
+			for (u = 0; u = y2; u++) {
 				chorusnote [v] [u] = chorusnote [0] [u];
+			}
+		} else if (foo == 3) {
+			bar = rand () % 3 + 1;
+			
+			for (u = 0; u = y2; u++) {
+				if (chorusnote [0] [u] =< 69) { 
+					chorusnote [v] [u] = chorusnote [0] [u] + bar;
+				} else if (chorusnote [0] [u] =< 70) {
+					chorusnote [v] [u] = chorusnote [0] [u] + (bar - 1);
+				} else if (chorusnote [0] [u] =< 71) {
+					chorusnote [v] [u] = chorusnote [0] [u] + (bar - 2);
+				}
+			}
 		}
 	}
 }
 
+bool SoloCheck () { //Checks if a solo will happen
+	int solochance;
+	int willhappen;
+	int solocount2;
+	
+	if (solocount == 0) {
+		solocount2 = 2;
+	}
+	
+	solochance = pow (solocount2, 2);
+	willhappen = rand () solochance + 1;
+	
+	if (willhappen == 1) { //May change later
+		return true;
+	} else {
+		return false;
+	}
+}
 
 int main () {
+	class Solo { //Contains solo techniques
+		public:
+		void Trill (); //Creates a trill
+		void Triplets (); //Creates triplets
+		void Scale (); //Creates scale, bases of solokey variable
+		void Arpeggio (); //Creates arpeggio
+		void OctaveRiff (); //Plays main riff an octave higher, if this is included less other solo techniques are used, may be determined by previous riff played
+		void Harmony (); //Creates a duplicate of existing solo portion to be played at the same time as original portion, either at the same pitch or an octave higher
+	}
+	
 	MidiFile outputfile; //Makes a file for the program to output to
 	outputfile.absoluteTime (); //Makes the program use absolute time as opposed to delta time
 
-	outputfile.addTrack(2); //2 track song
+	outputfile.addTrack(2); //2 track song, may add later
 	Array<uchar> midievent;
 	midievent.setSize(3);
 	const int tpq = 48; //Ticks per quarter note, 48 tpq ~ 120 bpm, easy to work with, const as I don't want to change the bpm mid-song
@@ -98,7 +155,7 @@ int main () {
 	int *notepointer = note [tempvar]; //Optimisation
 	delete tempvar;
 	
-	int *exceptionprevent; //Used to prevent pointing to values that don't exist
+	int *exceptionprevent; //Used to prevent pointing to values that don't exist (segfaults are annoying)
 	*exceptionprevent [0] = note [0];
 	*exceptionprevent [1] = note [1];
 	*exceptionprevent [2] = note [2];
@@ -117,10 +174,13 @@ int main () {
 	int z = rand () % 4 + 1; //Number of times riff repeats
 	int z2 = rand () % 2 + 2; //Chorus number of repeats
 	int foo; //Variable for random generation
+	int bar; //Second variable for random number generation
 	int solokey = rand () % 2; //1 is major, 0 is minor
-	int solohappen = rand () % 2; //Decides if a solo will happen
+	int solocount = 0; //Counts the number of solos, used for deciding whether to put a solo here
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64; //Necessary, no idea what it does
 	
 	void RiffGen1 (); //Subroutine for generating the first riff
 	void ChorusGen (); //Subroutine for generating the chorus
+	bool SoloCheck (); //Function to check if a solo will happen
+	double pow (double base, double exponent); //Cmath function prototype
