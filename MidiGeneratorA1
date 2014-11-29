@@ -128,15 +128,403 @@ bool SoloCheck () { //Checks if a solo will happen
 	}
 }
 
+void Trill () {
+	new int tempvar = rand () % 12 + 11;
+	*notepointer = note [tempvar];
+	delete tempvar;
+	
+	new int blork;
+	new int trilllength = 2 * (rand % 8 + 4);
+	
+	if (&notepointer = &exceptionprevent [7]) {
+		for (u = 0; u = trilllength; u += 2) {
+			blork = u + 1;
+			solonote [solonumber] [solopart] [u] = *notepointer;
+			solonote [solonumber] [solopart] [blork] = *notepointer - 1;
+		}
+	} else {
+		for (u = 0; u = trilllength; u += 2) {
+			blork = u + 1;
+			solonote [solonumber] [solopart] [u] = *notepointer;
+			solonote [solonumber] [solopart] [blork] = *notepointer + 1;
+		}
+	}
+	delete trilllength;
+	delete blork;
+	
+	solopart++;
+}
+
+void Triplets () {
+	new int tempvar = rand () % 12 + 11;
+	*notepointer = note [tempvar];
+	delete tempvar;
+	
+	new int tripletnum = 3 * (rand () % 8);
+	new int difftripletnum = rand () % 8;
+	new int point;
+	new int less;
+	new int byeah = solopart;
+	
+	if (&notepointer = &exceptionprevent [7]) {
+		for (u = 0; u = tripletnum; u += 3) {
+			point = u + 1;
+			less = u + 2;
+			solonote [solonumber] [solopart] [u] = *notepointer;
+			solonote [solonumber] [solopart] [point] = *notepointer - 1;
+			solonote [solonumber] [solopart] [less] = *notepointer - 2;
+		}
+		
+		for (v = 0; v = difftripletnum; v++) {
+			for (u = 0; u = tripletnum; u++) {
+				solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+			}
+			solopart++;
+		}
+	} else if (&notepointer = &exceptionprevent [6]) {
+		foo = rand () % 3;
+		
+		if (foo == 0) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer;
+				solonote [solonumber] [solopart] [point] = *notepointer - 1;
+				solonote [solonumber] [solopart] [less] = *notepointer - 2;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		} else if (foo == 1) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer - 1;
+				solonote [solonumber] [solopart] [point] = *notepointer;
+				solonote [solonumber] [solopart] [less] = *notepointer + 1;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		} else if (foo == 2) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer + 1;
+				solonote [solonumber] [solopart] [point] = *notepointer;
+				solonote [solonumber] [solopart] [less] = *notepointer - 1;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		}
+	} else {
+		foo = rand () % 4;
+		
+		if (foo == 0) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer;
+				solonote [solonumber] [solopart] [point] = *notepointer - 1;
+				solonote [solonumber] [solopart] [less] = *notepointer - 2;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		} else if (foo == 1) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer + 1;
+				solonote [solonumber] [solopart] [point] = *notepointer;
+				solonote [solonumber] [solopart] [less] = *notepointer - 1;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		} else if (foo == 2) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer - 1;
+				solonote [solonumber] [solopart] [point] = *notepointer;
+				solonote [solonumber] [solopart] [less] = *notepointer + 1;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		} else if (foo == 3) {
+			for (u = 0; u = tripletnum; u += 3) {
+				point = u + 1;
+				less = u + 2;
+				solonote [solonumber] [solopart] [u] = *notepointer;
+				solonote [solonumber] [solopart] [point] = *notepointer + 1;
+				solonote [solonumber] [solopart] [less] = *notepointer + 2;
+			}
+			
+			for (v = 0; v = difftripletnum; v++) {
+				for (u = 0; u = tripletnum; u++) {
+					solonote [solonumber] [solopart] [u] = solonote [solonumber] [byeah] [u];
+				}
+				solopart++;
+			}
+		}
+	}
+}
+
+void Scale (int solokey) {
+	int *scale [];
+	int scalerifflength = rand () % 100 + 1;
+	
+	if (solokey == 1) { //Major
+		*scale [0] = note [11]; //Middle C (C4)
+		*scale [1] = note [13]; //D
+		*scale [2] = note [15]; //E
+		*scale [3] = note [16]; //F
+		*scale [4] = note [18]; //G
+		*scale [5] = note [20]; //A
+		*scale [6] = note [22]; //B
+		*scale [7] = note [23]; //C5
+	} else if (solokey == 0) { //Minor
+		*scale [0] = note [11]; //Middle C (C4)
+		*scale [1] = note [13]; //D
+		*scale [2] = note [14]; //Eb
+		*scale [3] = note [16]; //F
+		*scale [4] = note [18]; //G
+		*scale [5] = note [19]; //Ab
+		*scale [6] = note [21]; //Bb
+		*scale [7] = note [23]; //C5
+	}
+	
+	foo = rand () % 8;
+	*notepointer = *scale [foo]
+	new int asdf;
+	
+	for (u = 0; u = scalerifflength; u++) {
+		solonote [solonumber] [solopart] [u] = *notepointer;
+		bar = rand () % 3;
+		
+		if (bar == 0) {
+			foo--;
+			*notepointer = *scale [foo];
+		} else if (bar == 1) {
+			break;
+		} else if (bar == 2) {
+			foo++;
+			*notepointer = *scale [foo];
+		}
+	}
+}
+
+void Arpeggio (int solokey) {
+	int *chord []/*chord type*/ []/*chord part*/;		
+	
+	if (solokey == 1) { //Major
+		*chord [0] [0] = note [11]; //C
+		*chord [0] [1] = note [15]; //E
+		*chord [0] [2] = note [18]; //G
+		
+		*chord [1] [0] = note [13]; //D
+		*chord [1] [1] = note [17]; //F#
+		*chord [1] [2] = note [20]; //A
+		
+		*chord [2] [0] = note [15]; //E
+		*chord [2] [1] = note [19]; //G#
+		*chord [2] [2] = note [22]; //B
+		
+		*chord [3] [0] = note [16]; //F
+		*chord [3] [1] = note [20]; //A
+		*chord [3] [2] = note [23]; //C
+		
+		*chord [4] [0] = note [6]; //G
+		*chord [4] [1] = note [10]; //B
+		*chord [4] [2] = note [13]; //D
+		
+		*chord [5] [0] = note [8]; //A
+		*chord [5] [1] = note [12]; //C#
+		*chord [5] [2] = note [15]; //E
+		
+		*chord [6] [0] = note [10] //B
+		*chord [6] [1] = note [14] //D#
+		*chord [6] [2] = note [17] //F#
+	} else if (solokey == 0) { //Minor
+		*chord [0] [0] = note [11]; //C
+		*chord [0] [1] = note [14]; //Eb
+		*chord [0] [2] = note [18]; //G
+		
+		*chord [1] [0] = note [13]; //D
+		*chord [1] [1] = note [16]; //F
+		*chord [1] [2] = note [20]; //A
+		
+		*chord [2] [0] = note [15]; //E
+		*chord [2] [1] = note [18]; //G
+		*chord [2] [2] = note [22]; //B
+		
+		*chord [3] [0] = note [16]; //F
+		*chord [3] [1] = note [19]; //Ab
+		*chord [3] [2] = note [23]; //C
+		
+		*chord [4] [0] = note [6]; //G
+		*chord [4] [1] = note [9]; //Bb
+		*chord [4] [2] = note [13]; //D
+		
+		*chord [5] [0] = note [8]; //A
+		*chord [5] [1] = note [11]; //C
+		*chord [5] [2] = note [15]; //E
+		
+		*chord [6] [0] = note [10]; //B
+		*chord [6] [1] = note [13]; //D
+		*chord [6] [2] = note [17]; //F#
+	}
+	
+	void up () { //Playing arpeggio notes in an ascending order
+		foo = rand () % 7; //Which arpeggio to play
+		bar = rand () % 8; //How many times to play it
+		
+		for (v = 0; v = bar; v++) {
+			for (u = 0; u = 2; u++) {
+				solonote [solonumber] [solopart] [u] = *chord [foo] [u];
+			}
+			
+			solopart++;
+		}
+	}
+	
+	void down () { //Playing arpeggio notes in descending order
+		foo = rand () % 7; //Which arpeggio to play
+		bar = rand () % 8; //How many times to play it
+		
+		for (v = 0; v = bar; v++) {
+			for (u = 2; u = 0; u--) {
+				solonote [solonumber] [solopart] [u] = *chord [foo] [u];
+			}
+			
+			solopart++;
+		}
+	}
+	
+	void updown () { //Playing arpeggio notes in ascending then descending order
+		foo = rand () % 7; //Which arpeggio to play
+		bar = rand () % 4; //How many times to play it
+		
+		new int tempvar = rand () % 2;
+		
+		if (tempvar == 1) { //I can't figure out how to automate this
+			for (u = 0; u = bar; u++) {
+				solonote [solonumber] [solopart] [0] = *chord [foo] [0];
+				solonote [solonumber] [solopart] [1] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [2] = *chord [foo] [2];
+				solonote [solonumber] [solopart] [3] = *chord [foo] [2];
+				solonote [solonumber] [solopart] [4] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [5] = *chord [foo] [0];
+				solopart++;
+			}
+		} else if (tempvar == 0) { //At least not without using extra memory, which isn't worth it
+			for (u = 0; u = bar; u++) {
+				solonote [solonumber] [solopart] [0] = *chord [foo] [0];
+				solonote [solonumber] [solopart] [1] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [2] = *chord [foo] [2];
+				solonote [solonumber] [solopart] [3] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [4] = *chord [foo] [0];
+				solopart++;
+			}
+		}
+		
+		delete tempvar;
+	}
+
+	void downup () { //Playing arpeggio notes in descending then ascending order
+		foo = rand () % 7; //Which arpeggio to play
+		bar = rand () % 4; //How many times to play it
+		
+		new int tempvar = rand () % 2;
+		
+		if (tempvar == 1) {
+			for (u = 0; u = bar; u++) {
+				solonote [solonumber] [solopart] [0] = *chord [foo] [2];
+				solonote [solonumber] [solopart] [1] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [2] = *chord [foo] [0];
+				solonote [solonumber] [solopart] [3] = *chord [foo] [0];
+				solonote [solonumber] [solopart] [4] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [5] = *chord [foo] [2];
+				solopart++;
+			}
+		} else if (tempvar == 0) {
+			for (u = 0; u = bar; u++) {
+				solonote [solonumber] [solopart] [0] = *chord [foo] [2];
+				solonote [solonumber] [solopart] [1] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [2] = *chord [foo] [0];
+				solonote [solonumber] [solopart] [3] = *chord [foo] [1];
+				solonote [solonumber] [solopart] [4] = *chord [foo] [2];
+				solopart++;
+			}
+		}
+		
+		delete tempvar;
+	}
+	
+	new int tempvar = rand () % 10;
+	new int tempvar2;
+	
+	for (u = 0; u = tempvar; u++) {
+		tempvar2 = rand () % 4;
+		if (tempvar2 == 0)
+			up ();
+		else if (tempvar2 == 1)
+			down ();
+		else if (tempvar2 == 2)
+			updown ();
+		else if (tempvar2 == 3)
+			downup ();
+	}
+}
+
+void octaveriff () {
+	for (v = 0; v = z; v++) {
+		for (u = 0; u = y; u++) { //Copies the notes from the first riff and adds 12 to them (one octave higher)
+			solonote [solonumber] [solopart] [u] = riffnote [0] [u] + 12;
+		}
+		
+		solopart++;
+	}
+	
+	solopart += 10; //Lowering the number of other solo techniques used
+}
+	
+	
 int main () {
 	class Solo { //Contains solo techniques
 		public:
 		void Trill (); //Creates a trill
 		void Triplets (); //Creates triplets
-		void Scale (); //Creates scale, bases of solokey variable
-		void Arpeggio (); //Creates arpeggio
+		void Scale (int solokey); //Creates scale, based of solokey variable
+		void Arpeggio (int solokey); //Creates arpeggio, also based off solokey variable
 		void OctaveRiff (); //Plays main riff an octave higher, if this is included less other solo techniques are used, may be determined by previous riff played
-		void Harmony (); //Creates a duplicate of existing solo portion to be played at the same time as original portion, either at the same pitch or an octave higher
 	}
 	
 	MidiFile outputfile; //Makes a file for the program to output to
@@ -145,12 +533,13 @@ int main () {
 	outputfile.addTrack(2); //2 track song, may add later
 	Array<uchar> midievent;
 	midievent.setSize(3);
-	const int tpq = 48; //Ticks per quarter note, 48 tpq ~ 120 bpm, easy to work with, const as I don't want to change the bpm mid-song
+	const int tpq = 48; //Ticks per quarter note, 48 tpq ~ 120 bpm, easy to work with, const as I don't plan to change the bpm mid-song
 	outputfile.setTicksPerQuarterNote (tpq); //Sets ticks per quarter note (quaver)
 
 	const int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5, no need to change due to this array being a set of notes
 	int riffnote1 [] []; //Memory for riff 1
 	int chorusnote [] []; //Memory for chorus
+	int solonote [] [] []; //Memory for solo
 	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
 	int *notepointer = note [tempvar]; //Optimisation
 	delete tempvar;
@@ -177,6 +566,9 @@ int main () {
 	int bar; //Second variable for random number generation
 	int solokey = rand () % 2; //1 is major, 0 is minor
 	int solocount = 0; //Counts the number of solos, used for deciding whether to put a solo here
+	int solopart; //What part of the solo is currently being made, useful to prevent 2 parts accidentally overlapping
+	int soloparttotal; //Number of parts the solo will have, decided while creating the solo
+	int solonumber; //Same as solocount but used for a different purpose
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64; //Necessary, no idea what it does
 	
@@ -184,3 +576,5 @@ int main () {
 	void ChorusGen (); //Subroutine for generating the chorus
 	bool SoloCheck (); //Function to check if a solo will happen
 	double pow (double base, double exponent); //Cmath function prototype
+}
+
