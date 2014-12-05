@@ -109,6 +109,29 @@ void ChorusGen () { //Subroutine to generate the chorus
 	}
 }
 
+void SoloGen () {
+	foo = rand () % 200 + 50;
+	solopart = 0;
+	
+	while (solopart < foo) {
+		bar = rand () % 5;
+		
+		if (bar == 0)
+			trill ();
+		else if (bar == 1)
+			triplets ();
+		else if (bar == 2)
+			scale (solokey);
+		else if (bar == 3) 
+			arpeggio (solokey);
+		else if (bar == 4)
+			octaveriff ();
+		
+	}
+	
+	solonumber++;
+}
+
 bool SoloCheck () { //Checks if a solo will happen
 	int solochance;
 	int willhappen;
@@ -574,6 +597,7 @@ int main () {
 	
 	void RiffGen1 (); //Subroutine for generating the first riff
 	void ChorusGen (); //Subroutine for generating the chorus
+	void SoloGen (); //Subroutine for generating the solo
 	bool SoloCheck (); //Function to check if a solo will happen
 	double pow (double base, double exponent); //Cmath function prototype
 }
