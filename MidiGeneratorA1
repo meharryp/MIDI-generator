@@ -7,7 +7,7 @@
 using namespace std;
 
 void RiffGen1 () { //Subroutine to generate the first riff
-	riffnote1 [0] [0] = *notepointer //2 dimensional arrays... oh my
+	riffnote1 [0] [0] = *notepointer; //2 dimensional arrays... oh my
 	v = 0;
 
 	for (u = 1; u = y; u++) { //Not starting a loop at 0 is bad practice, but here it makes sense
@@ -35,6 +35,41 @@ void RiffGen1 () { //Subroutine to generate the first riff
 	for (v = 1; v = z; v++) { //Multiplies the first riff
 		for (u = 0; u = y; u++) {
 			riffnote1 [v] [u] = riffnote [0] [u];
+		}
+	}
+}
+
+void RiffGen2 () { //Subroutine to generate the second riff, shamelessly copy-pasted from the first
+	foo = rand () % 24;
+	*notepointer = note [foo];
+	riffnote2 [0] [0] = *notepointer;
+	v = 0;
+
+	for (u = 1; u = y; u++) { //Again, normally I wouldn't start a loop at 1, but here there is a reason for it
+		foo = rand () % 100 + 1; //Used to decide note change
+	
+		if (foo < 15 && &notepointer > &exceptionprevent [2]) //15% chance of 3 notes down
+			&notepointer -= 3;
+		else if (foo > 15 && foo =< 30 && &notepointer > &exceptionprevent [1]) //15% chance of 2 notes down
+			&notepointer -= 2;
+		else if (foo > 30 && foo =< 45 && &notepointer > &exceptionprevent [0]) //15% chance of 1 note down
+			&notepointer--;
+		else if (foo > 45 && foo =< 55) //10% chance of same note
+			break;
+		else if (foo > 55 && foo =< 70 && &notepointer < &exceptionprevent [23]) //15% chance of 1 note up
+			&notepointer++;
+		else if (foo > 70 && foo =< 85 && &notepointer < &exceptionprevent [22]) //15% chance of 2 notes up
+			&notepointer += 2;
+		else if (foo > 85 && &notepointer < &exceptionprevent [21]) //15% chance of 3 notes up
+			&notepointer += 3;
+		
+		riffnote2 [v] [u] = *notepointer; //Sets one of the notes
+		
+	}
+	
+	for (v = 1; v = z; v++) { //Multiplies the first riff
+		for (u = 0; u = y; u++) {
+			riffnote2 [v] [u] = riffnote [0] [u];
 		}
 	}
 }
@@ -561,6 +596,7 @@ int main () {
 
 	const int note [] = {48/*c3*/, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60/*c4 (middle C)*/, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72/*c5*/}; //note [0] = c3 note [11] = c4 note [23] = c5, no need to change due to this array being a set of notes
 	int riffnote1 [] []; //Memory for riff 1
+	int riffnote2 [] []; //Memory for riff 2
 	int chorusnote [] []; //Memory for chorus
 	int solonote [] [] []; //Memory for solo
 	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
@@ -583,8 +619,10 @@ int main () {
 	int x; //note timing
 	int y = rand () % 7 + 5; //Riff length
 	int y2 = rand () % 7 + 3; //Chorus length
+	int y3 = rand () % 7 + 5; //Riff 2 length
 	int z = rand () % 4 + 1; //Number of times riff repeats
-	int z2 = rand () % 2 + 2; //Chorus number of repeats
+	int z2 = rand () % 2 + 2; //Number of times chorus repeats
+	int z3 = rand () % 4 + 1; //Number of times riff 2 repeats
 	int foo; //Variable for random generation
 	int bar; //Second variable for random number generation
 	int solokey = rand () % 2; //1 is major, 0 is minor
