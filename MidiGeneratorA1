@@ -176,7 +176,7 @@ bool SoloCheck () { //Checks if a solo will happen
 		solocount2 = 2;
 	}
 	
-	solochance = pow (solocount2, 2);
+	solochance = (pow (solocount2, 2)) / 2;
 	willhappen = rand () solochance + 1;
 	
 	if (willhappen == 1) { //May change later
@@ -574,7 +574,6 @@ void octaveriff () {
 	solopart += 10; //Lowering the number of other solo techniques used
 }
 	
-	
 int main () {
 	class Solo { //Contains solo techniques
 		public:
@@ -634,9 +633,11 @@ int main () {
 	midievent [2] = 64; //Necessary, no idea what it does
 	
 	void RiffGen1 (); //Subroutine for generating the first riff
+	void RiffGen2 (); //Subroutine for generating the second riff
 	void ChorusGen (); //Subroutine for generating the chorus
 	void SoloGen (); //Subroutine for generating the solo
 	bool SoloCheck (); //Function to check if a solo will happen
+	void ConcatenateAllNotes (); //Why did I choose to program this in C++, concatenating arrays is hard =(
+	
 	double pow (double base, double exponent); //Cmath function prototype
 }
-
