@@ -164,6 +164,7 @@ void SoloGen () {
 		
 	}
 	
+	sololength [solonumber] = solopart;
 	solonumber++;
 }
 
@@ -172,11 +173,18 @@ bool SoloCheck () { //Checks if a solo will happen
 	int willhappen;
 	int solocount2;
 	
-	if (solocount == 0) {
+	if (solocount < 2) {
 		solocount2 = 2;
+	} else {
+		solocount2 = solocount;
 	}
 	
-	solochance = (pow (solocount2, 2)) / 2;
+	if (solocount2 == 2) {
+		solochance = pow (solocount2, 2);
+	} else {
+		solochance = round ((pow (solocount2, 2)) / 2);
+	}
+	
 	willhappen = rand () solochance + 1;
 	
 	if (willhappen == 1) { //May change later
@@ -573,7 +581,17 @@ void octaveriff () {
 	
 	solopart += 10; //Lowering the number of other solo techniques used
 }
-	
+
+int soa (int array) { //Quick & dirty way of finding the size of an array
+	int sizeofarray = (sizeof (array) / sizeof (array [0]));
+	return sizeofarray;
+}
+
+void ConcatenateAllNotes () { //So begins a long and arduous journey of finding out how to concatenate multiple multidimensional arrays with no fixed size into one one-dimesional array (also no fixed size)
+	RiffGen1 (); //First riff
+	for (
+}
+
 int main () {
 	class Solo { //Contains solo techniques
 		public:
@@ -598,6 +616,7 @@ int main () {
 	int riffnote2 [] []; //Memory for riff 2
 	int chorusnote [] []; //Memory for chorus
 	int solonote [] [] []; //Memory for solo
+	int *allnotes [] //A variable that stores all the notes of the song in order, pointer as storing all the variables twice would be a massive waste of memory
 	new int tempvar = rand () % 24; //Temporary variable to avoid syntax issues
 	int *notepointer = note [tempvar]; //Optimisation
 	delete tempvar;
@@ -629,6 +648,7 @@ int main () {
 	int solopart; //What part of the solo is currently being made, useful to prevent 2 parts accidentally overlapping
 	int soloparttotal; //Number of parts the solo will have, decided while creating the solo
 	int solonumber; //Same as solocount but used for a different purpose
+	int sololength []; //Number of parts for the solo, array denotes which solo it is
 	int actiontime = 0; //Time between notes, will add tpq, and multiply by x to vary note timing
 	midievent [2] = 64; //Necessary, no idea what it does
 	
@@ -638,6 +658,8 @@ int main () {
 	void SoloGen (); //Subroutine for generating the solo
 	bool SoloCheck (); //Function to check if a solo will happen
 	void ConcatenateAllNotes (); //Why did I choose to program this in C++, concatenating arrays is hard =(
+	int soa (); //Function to find the size of an array, will be of great use when concatenating
 	
 	double pow (double base, double exponent); //Cmath function prototype
+	double round (double x); //Other cmath function prototype
 }
