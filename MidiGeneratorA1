@@ -589,7 +589,19 @@ int soa (int array) { //Quick & dirty way of finding the size of an array
 
 void ConcatenateAllNotes () { //So begins a long and arduous journey of finding out how to concatenate multiple multidimensional arrays with no fixed size into one one-dimesional array (also no fixed size)
 	RiffGen1 (); //First riff
-	for (
+	
+	new int tempvar;
+	new int tempvar2;
+	
+	for (v = 0; v = z; v++) { //Concatenating riff 1
+		tempvar = v * y;
+		for (u = 0; u = y; u++) {
+			tempvar2 = u + tempvar;
+			*allnotes [tempvar2] = riffnote1 [v] [u];
+		}
+	}
+	
+		
 }
 
 int main () {
