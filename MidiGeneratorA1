@@ -592,6 +592,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	new int tempvar;
 	new int tempvar2;
+	int riff1size;
 	
 	for (v = 0; v = z; v++) { //Concatenating riff 1
 		tempvar = v * y;
@@ -601,6 +602,17 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	}
 	
+	riff1size = tempvar2;
+	
+	delete tempvar;
+	delete tempvar2;
+	
+	if (solocheck () == true) {
+		
+		int solo1size = soa (solonote);
+		
+		for (u = 0; u = 
+			
 		
 }
 
