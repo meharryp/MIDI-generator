@@ -593,12 +593,13 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	new int tempvar;
 	new int tempvar2;
 	int riff1size;
+	int *concatenatedriff1 [];
 	
 	for (v = 0; v = z; v++) { //Concatenating riff 1
 		tempvar = v * y;
 		for (u = 0; u = y; u++) {
 			tempvar2 = u + tempvar;
-			*allnotes [tempvar2] = riffnote1 [v] [u];
+			*concatenatedriff1 [tempvar2] = riffnote1 [v] [u];
 		}
 	}
 	
