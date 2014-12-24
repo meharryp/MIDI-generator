@@ -608,10 +608,13 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	delete tempvar2;
 	
 	if (solocheck () == true) {
+		SoloGen ();
 		
 		int solo1size = soa (solonote);
+		int *concatenatedsolo1;
 		
-		for (u = 0; u = 
+		concatenatedsolo1 = solonote;
+	}
 			
 		
 }
