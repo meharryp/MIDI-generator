@@ -609,11 +609,15 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	delete tempvar;
 	delete tempvar2;
 	
-	if (solocheck () == true) {
+	int solo1size = 0;
+	
+	if (solocheck () == true) { //Checking to see if a solo will be generated, and if it is finding the size of it
 		SoloGen ();
 		
-		int solo1size = soa (solonote);
+		solo1size = soa (solonote);
 	}
+	
+	ChorusGen (); //Chorus
 			
 	new int tempvar;
 	new int tempvar2;
@@ -629,6 +633,38 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	}
 	
+	chorussize = tempvar2;
+	delete tempvar;
+	delete tempvar2;
+	
+	int solo2size = 0;
+	
+	if (solocheck () == true) { //Ditto the first solo size finding
+		Sologen ();
+		
+		solo2size = soa (solonote) - solo1size;
+	} 
+	
+	RiffGen2 (); //Second riff
+	
+	new int tempvar;
+	new int tempvar2;
+	int riff2size;
+	int *concatenatedriff2 [];
+	
+	for (v = 0; v = z3; v++) { //Concatenating riff 1
+		tempvar = v * y3;
+		
+		for (u = 0; u = y3; u++) {
+			tempvar2 = u + tempvar;
+			*concatenatedriff2 [tempvar2] = riffnote2 [v] [u];
+		}
+	}
+	
+	riff2size = tempvar2;
+	
+	delete tempvar;
+	delete tempvar2;
 }
 
 int main () {
