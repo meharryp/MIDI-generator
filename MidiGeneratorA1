@@ -597,6 +597,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	for (v = 0; v = z; v++) { //Concatenating riff 1
 		tempvar = v * y;
+		
 		for (u = 0; u = y; u++) {
 			tempvar2 = u + tempvar;
 			*concatenatedriff1 [tempvar2] = riffnote1 [v] [u];
@@ -612,12 +613,22 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		SoloGen ();
 		
 		int solo1size = soa (solonote);
-		int *concatenatedsolo1;
-		
-		concatenatedsolo1 = solonote;
 	}
 			
+	new int tempvar;
+	new int tempvar2;
+	int chorussize;
+	int *concatenatedchorus [];
+	
+	for (v = 0; v = z2; v++) { //Concatenating the chorus, I only have to do this once
+		tempvar = v * y2;
 		
+		for (u = 0; u = y2; u++) {
+			tempvar2 = u + tempvar;
+			*concatenatedchorus [tempvar2] = chorusnote [v] [u];
+		}
+	}
+	
 }
 
 int main () {
