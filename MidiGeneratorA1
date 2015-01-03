@@ -609,14 +609,6 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	delete tempvar;
 	delete tempvar2;
 	
-	int solo1size = 0;
-	
-	if (solocheck () == true) { //Checking to see if a solo will be generated, and if it is finding the size of it
-		SoloGen ();
-		
-		solo1size = soa (solonote);
-	}
-	
 	ChorusGen (); //Chorus
 			
 	new int tempvar;
@@ -652,7 +644,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	int riff2size;
 	int *concatenatedriff2 [];
 	
-	for (v = 0; v = z3; v++) { //Concatenating riff 1
+	for (v = 0; v = z3; v++) { //Concatenating riff 2
 		tempvar = v * y3;
 		
 		for (u = 0; u = y3; u++) {
@@ -665,6 +657,101 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	delete tempvar;
 	delete tempvar2;
+	
+	int solo3size = 0;
+	
+	new int tempvar;
+	new int tempvar2;
+	int riff3size;
+	int *concatenatedriff3 [];
+	
+	foo = rand () % 2 + 1;
+	
+	if (foo == 1) { //Using first riff for 3rd verse
+		for (v = 0; v = z; v++) { //Concatenating riff 1
+			tempvar = v * y;
+		
+			for (u = 0; u = y; u++) {
+				tempvar2 = u + tempvar;
+				*concatenatedriff3 [tempvar2] = riffnote1 [v] [u];
+			}
+		}
+	} else if (foo == 2) { //Using second riff for 3rd verse
+		for (v = 0; v = z3; v++) { //Concatenating riff 2
+			tempvar = v * y3;
+		
+			for (u = 0; u = y3; u++) {
+				tempvar2 = u + tempvar;
+				*concatenatedriff3 [tempvar2] = riffnote2 [v] [u];
+			}
+		}
+	}
+	
+	riff3size = tempvar2;
+	
+	delete tempvar;
+	delete tempvar2;
+	
+	//Here starts finding the size of all the soloes that get generated
+	//It will be very useful for later, so that all the soloes aren't just one massive solo in the middle of the song
+	
+	//Each solo decreases the chance of the next one happening
+	
+	if (solocheck () == true) { //Checking to see if a solo will be generated, and if it is finding the size of it
+		int solo1size = 0;
+		
+		SoloGen ();
+		
+		solo1size = soa (solonote);
+	}
+	
+	if (solocheck () == true) { //Ditto the first solo size finding
+		int solo2size = 0;
+	
+		Sologen ();
+		
+		solo2size = soa (solonote) - solo1size;
+	} 
+	
+	if (solocheck () == true) { //Ditto again 
+		int solo3size = 0;
+	
+		Sologen ();
+		
+		solo3size = soa (solonote) - solo1size - solo2size;
+	}
+	
+	if (solocheck () == true) { //Ditto again 
+		int solo2size = 0;
+	
+		Sologen ();
+		
+		solo4size = soa (solonote) - solo1size - solo2size - solo3size;
+	}
+	
+	if (solocheck () == true) { //Ditto again 
+		int solo5size = 0;
+		
+		Sologen ();
+		
+		solo5size = soa (solonote) - solo1size - solo2size - solo3size - solo4size;
+	}
+	
+	if (solocheck () == true) { //Ditto again 
+		int solo6size = 0;
+		
+		Sologen ();
+		
+		solo6size = soa (solonote) - solo1size - solo2size - solo3size - solo4size -solo5size;
+	}
+	
+	if (solocheck () == true) { //Ditto again 
+		int solo7size = 0;
+		
+		Sologen ();
+		
+		solo7size = soa (solonote) - solo1size - solo2size - solo3size - solo4size - solo5size - solo6size;
+	}
 }
 
 int main () {
