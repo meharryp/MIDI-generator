@@ -752,6 +752,30 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		
 		solo7size = soa (solonote) - solo1size - solo2size - solo3size - solo4size - solo5size - solo6size;
 	}
+	
+	//Putting each solo into its own array
+	
+	if (solonumber == 0) {
+		break;
+	} else if (solonumber == 1) {
+		int *solo1 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	} else if (solonumber == 2) {
+		int *solo1 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		int *solo2 [];
+		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	}
 }
 
 int main () {
