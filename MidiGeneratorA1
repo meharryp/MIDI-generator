@@ -765,15 +765,30 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	} else if (solonumber == 2) {
 		int *solo1 [];
+		int *solo2 [];
 		
 		for (u = 0; u = solo1size; u++) {
 			*solo1 [u] = *(&solonote [0] [0] [0] + u);
 		}
 		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	} else if (solonumber == 2) {
+		int *solo1 [];
 		int *solo2 [];
+		int *solo3 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
 		
 		for (u = (solo1size + 1); u = solo2size; u++) {
 			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo2size + 1); u = solo3size; u++) {
+			*solo3 [u] = *(&solonote [0] [0] [0] + u);
 		}
 	}
 }
