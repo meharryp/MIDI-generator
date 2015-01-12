@@ -774,7 +774,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		for (u = (solo1size + 1); u = solo2size; u++) {
 			*solo2 [u] = *(&solonote [0] [0] [0] + u);
 		}
-	} else if (solonumber == 2) {
+	} else if (solonumber == 3) {
 		int *solo1 [];
 		int *solo2 [];
 		int *solo3 [];
@@ -790,7 +790,122 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		for (u = (solo2size + 1); u = solo3size; u++) {
 			*solo3 [u] = *(&solonote [0] [0] [0] + u);
 		}
+	} else if (solonumber == 4) {
+		int *solo1 [];
+		int *solo2 [];
+		int *solo3 [];
+		int *solo4 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo2size + 1); u = solo3size; u++) {
+			*solo3 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo3size + 1); u = solo4size; u++) {
+			*solo4 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	} else if (solonumber == 5) {
+		int *solo1 [];
+		int *solo2 [];
+		int *solo3 [];
+		int *solo4 [];
+		int *solo5 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo2size + 1); u = solo3size; u++) {
+			*solo3 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo3size + 1); u = solo4size; u++) {
+			*solo4 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo4size + 1); u = solo5size; u++) {
+			*solo5 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	} else if (solonumber == 5) {
+		int *solo1 [];
+		int *solo2 [];
+		int *solo3 [];
+		int *solo4 [];
+		int *solo5 [];
+		int *solo6 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo2size + 1); u = solo3size; u++) {
+			*solo3 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo3size + 1); u = solo4size; u++) {
+			*solo4 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo4size + 1); u = solo5size; u++) {
+			*solo5 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo5size + 1); u = solo6size; u++) {
+			*solo6 [u] = *(&solonote [0] [0] [0] + u);
+		}
+	} else if (solonumber == 5) {
+		int *solo1 [];
+		int *solo2 [];
+		int *solo3 [];
+		int *solo4 [];
+		int *solo5 [];
+		int *solo6 [];
+		int *solo7 [];
+		
+		for (u = 0; u = solo1size; u++) {
+			*solo1 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo1size + 1); u = solo2size; u++) {
+			*solo2 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo2size + 1); u = solo3size; u++) {
+			*solo3 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo3size + 1); u = solo4size; u++) {
+			*solo4 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo4size + 1); u = solo5size; u++) {
+			*solo5 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo5size + 1); u = solo6size; u++) {
+			*solo6 [u] = *(&solonote [0] [0] [0] + u);
+		}
+		
+		for (u = (solo6size + 1); u = solo6size; u++) {
+			*solo7 [u] = *(&solonote [0] [0] [0] + u);
+		}
 	}
+	
 }
 
 int main () {
