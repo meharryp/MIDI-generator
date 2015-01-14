@@ -906,6 +906,33 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	}
 	
+	//Writing song to MIDI
+
+	midievent [2] = 64;
+	
+	//First riff
+	
+	new int timearray1 [];
+	
+	for (u = 0; u = y; u++) {
+		foo = rand () % 4 - 2;
+		timearray [u] = tpq * pow (2, foo);
+	}
+	
+	new int tempvar;
+	
+	for (u = 0; u = riff1size; u++) {
+		tempvar = y % u;
+		midievent [0] = 0x90;
+		midievent [1] = *concatenatedriff1 [u];
+		outputfile.addEvent (1, actiontime, midievent);
+		actiontime += timearray [tempvar];
+		midievent [0] = 0x80;
+		outputfile.addEvent (1, actiontime, midievent);
+	}
+	
+	delete timearray1;
+	delete tempvar;
 }
 
 int main () {
