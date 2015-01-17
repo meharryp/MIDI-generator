@@ -916,7 +916,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	for (u = 0; u = y; u++) {
 		foo = rand () % 4 - 2;
-		timearray [u] = tpq * pow (2, foo);
+		timearray1 [u] = tpq * pow (2, foo);
 	}
 	
 	new int tempvar;
@@ -926,12 +926,36 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		midievent [0] = 0x90;
 		midievent [1] = *concatenatedriff1 [u];
 		outputfile.addEvent (1, actiontime, midievent);
-		actiontime += timearray [tempvar];
+		actiontime += timearray1 [tempvar];
 		midievent [0] = 0x80;
 		outputfile.addEvent (1, actiontime, midievent);
 	}
 	
 	delete timearray1;
+	delete tempvar;
+	
+	//Chorus
+	
+	new int timearray2 [];
+	
+	for (u = 0; u = y2; u++) {
+		foo = rand () % 4 - 2;
+		timearray2 [u] = tpq * pow (2, foo);
+	}
+	
+	new int tempvar;
+	
+	for (u = 0; u = riff1size; u++) {
+		tempvar = y % u;
+		midievent [0] = 0x90;
+		midievent [1] = *concatenatedchorus [u];
+		outputfile.addEvent (1, actiontime, midievent);
+		actiontime += timearray2 [tempvar];
+		midievent [0] = 0x80;
+		outputfile.addEvent (1, actiontime, midievent);
+	}
+	
+	delete timearray2;
 	delete tempvar;
 }
 
