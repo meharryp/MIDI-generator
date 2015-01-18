@@ -662,29 +662,16 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	new int tempvar;
 	new int tempvar2;
+	new int whichriff;
 	int riff3size;
 	int *concatenatedriff3 [];
 	
 	foo = rand () % 2 + 1;
 	
 	if (foo == 1) { //Using first riff for 3rd verse
-		for (v = 0; v = z; v++) { //Concatenating riff 1
-			tempvar = v * y;
-		
-			for (u = 0; u = y; u++) {
-				tempvar2 = u + tempvar;
-				*concatenatedriff3 [tempvar2] = riffnote1 [v] [u];
-			}
-		}
+		whichriff = 1;
 	} else if (foo == 2) { //Using second riff for 3rd verse
-		for (v = 0; v = z3; v++) { //Concatenating riff 2
-			tempvar = v * y3;
-		
-			for (u = 0; u = y3; u++) {
-				tempvar2 = u + tempvar;
-				*concatenatedriff3 [tempvar2] = riffnote2 [v] [u];
-			}
-		}
+		whichriff = 2;
 	}
 	
 	riff3size = tempvar2;
@@ -931,7 +918,6 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		outputfile.addEvent (1, actiontime, midievent);
 	}
 	
-	delete timearray1;
 	delete tempvar;
 	
 	//Chorus
@@ -978,6 +964,55 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		outputfile.addEvent (1, actiontime, midievent);
 	}
 	
+	delete tempvar;
+	
+	//Second chorus
+	
+	new int tempvar;
+	
+	for (u = 0; u = chorussize; u++) {
+		tempvar = y2 % u;
+		midievent [0] = 0x90;
+		midievent [1] = *concatenatedchorus [u];
+		outputfile.addEvent (1, actiontime, midievent);
+		actiontime += timearray2 [tempvar];
+		midievent [0] = 0x80;
+		outputfile.addEvent (1, actiontime, midievent);
+	}
+	
+	delete tempvar;
+	
+	//Third riff
+	
+	if (whichriff == 1) {
+		new int tempvar;
+	
+		for (u = 0; u = riff1size; u++) {
+			tempvar = y % u;
+			midievent [0] = 0x90;
+			midievent [1] = *concatenatedriff1 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += timearray1 [tempvar];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		delete tempvar;
+	} else if (whichriff == 2) {
+		new int tempvar;
+	
+		for (u = 0; u = riff2size; u++) {
+			tempvar = y3 % u;
+			midievent [0] = 0x90;
+			midievent [1] = *concatenatedriff2 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += timearray3 [tempvar];
+			midievent = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+	
+		delete tempvar;
+	}
 }
 
 int main () {
