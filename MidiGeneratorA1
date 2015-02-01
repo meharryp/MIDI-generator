@@ -897,6 +897,190 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 
 	midievent [2] = 64;
 	
+	//Creating the timing for the solo
+	
+	if (solonumber > 0) {
+		new int solo1timearray [];
+		
+		for (u = 0; u = solo1size; u++) {
+			foo = rand () % 28;
+			
+			if (foo =< 6) {
+				bar = -4;
+			else if (6 < foo =< 12) {
+				bar = -3;
+			else if (12 < foo =< 17) {
+				bar = -2;
+			else if (17 < foo =< 21) {
+				bar = -1;
+			else if (21 < foo =< 24) {
+				bar = 0;
+			else if (24 < foo =< 26) {
+				bar = 1;
+			else if (26 < foo) {
+				bar = 2;
+			}
+			
+			solo1timearray [u] = tpq * pow (2, bar);
+		}
+		
+		if (solonumber > 1) {
+			new int solo2timearray [];
+		
+			for (u = 0; u = solo2size; u++) {
+				foo = rand () % 28;
+				
+				if (foo =< 6) {
+					bar = -4;
+				else if (6 < foo =< 12) {
+					bar = -3;
+				else if (12 < foo =< 17) {
+					bar = -2;
+				else if (17 < foo =< 21) {
+					bar = -1;
+				else if (21 < foo =< 24) {
+					bar = 0;
+				else if (24 < foo =< 26) {
+					bar = 1;
+				else if (26 < foo) {
+					bar = 2;
+				}
+			
+				solo2timearray [u] = tpq * pow (2, bar);
+			}
+			
+			if (solonumber > 2) {
+				new int solo3timearray [];
+		
+				for (u = 0; u = solo3size; u++) {
+					foo = rand () % 28;
+				
+					if (foo =< 6) {
+						bar = -4;
+					else if (6 < foo =< 12) {
+						bar = -3;
+					else if (12 < foo =< 17) {
+						bar = -2;
+					else if (17 < foo =< 21) {
+						bar = -1;
+					else if (21 < foo =< 24) {
+						bar = 0;
+					else if (24 < foo =< 26) {
+						bar = 1;
+					else if (26 < foo) {
+						bar = 2;
+					}
+			
+					solo3timearray [u] = tpq * pow (2, bar);
+				}
+				
+				if (solonumber > 3) {
+					new int solo4timearray [];
+		
+					for (u = 0; u = solo4size; u++) {
+						foo = rand () % 28;
+			
+						if (foo =< 6) {
+							bar = -4;
+						else if (6 < foo =< 12) {
+							bar = -3;
+						else if (12 < foo =< 17) {
+							bar = -2;
+						else if (17 < foo =< 21) {
+							bar = -1;
+						else if (21 < foo =< 24) {
+							bar = 0;
+						else if (24 < foo =< 26) {
+							bar = 1;
+						else if (26 < foo) {
+							bar = 2;
+						}
+						
+						solo4timearray [u] = tpq * pow (2, bar);
+					}
+					
+					if (solonumber > 4) {
+						new int solo5timearray [];
+		
+						for (u = 0; u = solo5size; u++) {
+							foo = rand () % 28;
+		
+							if (foo =< 6) {
+								bar = -4;
+							else if (6 < foo =< 12) {
+								bar = -3;
+							else if (12 < foo =< 17) {
+								bar = -2;
+							else if (17 < foo =< 21) {
+								bar = -1;
+							else if (21 < foo =< 24) {
+								bar = 0;						
+							else if (24 < foo =< 26) {
+								bar = 1;
+							else if (26 < foo) {
+								bar = 2;
+							}
+			
+							solo5timearray [u] = tpq * pow (2, bar);
+						}
+							
+						if (solonumber > 5) {
+							new int solo6timearray [];
+		
+							for (u = 0; u = solo3; u++) {
+								foo = rand () % 28;
+			
+								if (foo =< 6) {
+									bar = -4;
+								else if (6 < foo =< 12) {
+									bar = -3;
+								else if (12 < foo =< 17) {
+									bar = -2;
+								else if (17 < foo =< 21) {
+									bar = -1;
+								else if (21 < foo =< 24) {
+									bar = 0;
+								else if (24 < foo =< 26) {
+									bar = 1;
+								else if (26 < foo) {
+									bar = 2;
+								}
+			
+								solo1timearray [u] = tpq * pow (2, bar);
+							}
+							
+							if (solonumber > 6) {
+								new int solo1timearray [];
+		
+								for (u = 0; u = y; u++) {
+									foo = rand () % 28;
+			
+									if (foo =< 6) {
+										bar = -4;
+									else if (6 < foo =< 12) {
+										bar = -3;
+									else if (12 < foo =< 17) {
+										bar = -2;
+									else if (17 < foo =< 21) {
+										bar = -1;
+									else if (21 < foo =< 24) {
+										bar = 0;
+									else if (24 < foo =< 26) {
+										bar = 1;
+									else if (26 < foo) {
+										bar = 2;
+									}
+			
+									solo1timearray [u] = tpq * pow (2, bar);
+								}
+							}			
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	//First riff
 	
 	new int timearray1 [];
