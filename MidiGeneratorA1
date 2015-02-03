@@ -1027,7 +1027,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 						if (solonumber > 5) {
 							new int solo6timearray [];
 		
-							for (u = 0; u = solo3; u++) {
+							for (u = 0; u = solo6size; u++) {
 								foo = rand () % 28;
 			
 								if (foo =< 6) {
@@ -1052,7 +1052,7 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 							if (solonumber > 6) {
 								new int solo1timearray [];
 		
-								for (u = 0; u = y; u++) {
+								for (u = 0; u = solo7size; u++) {
 									foo = rand () % 28;
 			
 									if (foo =< 6) {
@@ -1081,6 +1081,25 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	}
 	
+	solocounter = solonumber;
+	
+	//First solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo1size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo1 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo1timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
+	
 	//First riff
 	
 	new int timearray1 [];
@@ -1103,6 +1122,23 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	}
 	
 	delete tempvar;
+	
+	//Second solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo2size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo2 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo2timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
 	
 	//Chorus
 	
@@ -1127,6 +1163,23 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	delete tempvar;
 	
+	//Third solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo3size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo3 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo3timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
+	
 	//Second riff
 	
 	new int timearray3 [];
@@ -1150,6 +1203,23 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	
 	delete tempvar;
 	
+	//Fourth solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo4size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo4 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo4timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
+	
 	//Second chorus
 	
 	new int tempvar;
@@ -1165,6 +1235,23 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 	}
 	
 	delete tempvar;
+	
+	//Fifth solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo5size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo5 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo5timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
 	
 	//Third riff
 	
@@ -1196,6 +1283,61 @@ void ConcatenateAllNotes () { //So begins a long and arduous journey of finding 
 		}
 	
 		delete tempvar;
+	}
+	
+	//Sixth solo
+	
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo6size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo6 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo6timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
+	}
+	
+	//Final Chorus
+	
+	foo = rand () % 2;
+	
+	if (foo == 1) {
+		new int tempvar;
+		
+		for (u = 0; u = chorussize; u++) {
+			tempvar = y2 % u;
+			midievent [0] = 0x90;
+			midievent [1] = *concatenatedchorus [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += timearray2 [tempvar];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		delete tempvar;
+		
+	}
+	
+	//Seventh solo
+		
+	foo = rand () % 2;
+	
+	if (foo == 1 && solocounter > 0) {
+		for (u = 0; u = solo7size; u++) {
+			midievent [0] = 0x90;
+			midievent [1] = *solo7 [u];
+			outputfile.addEvent (1, actiontime, midievent);
+			actiontime += solo7timearray [u];
+			midievent [0] = 0x80;
+			outputfile.addEvent (1, actiontime, midievent);
+		}
+		
+		solocounter--;
 	}
 }
 
